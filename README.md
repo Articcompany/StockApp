@@ -1,1 +1,2 @@
 # StockApp
+Aplicativo de Inventarios
