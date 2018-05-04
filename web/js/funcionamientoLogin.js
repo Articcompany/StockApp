@@ -7,12 +7,13 @@
 
 $(document).ready(function () {
     $('#login').click(function (event) {
-        alert();
         var usuario = $('#usuario').val();
         var password = $('#password').val();
-        $.post('ServletLogin', {
+        $.get('ServletLogin', {
             usuario: usuario,
             password: password
+        },function (responseText) {
+            $('#prueba').html(responseText);
         });
     });
 });

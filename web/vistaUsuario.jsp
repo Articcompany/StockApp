@@ -1,6 +1,6 @@
 <%-- 
-    Document   : vistaEmpresa
-    Created on : 25/04/2018, 04:52:03 PM
+    Document   : vistaUsuario
+    Created on : 3/05/2018, 10:56:24 PM
     Author     : AndresFelipe
 --%>
 
@@ -12,14 +12,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>          
+    <body>
         <%Vendedor vendedor=(Vendedor)request.getSession().getAttribute("Vendedor");%>
-        <%vendedor.setContrasenia("ContraseñaMODIFICADS");%>
         <%= vendedor.saludo()%>
         <h1>Hello World!</h1>
-        <form method="post" action="ServletLoginUsuario">
-            
-            <input type="submit" value="confirmar">
-        </form>
     </body>
 </html>

@@ -16,12 +16,12 @@
         <script type="text/javascript" src="js/funcionamientoLogin.js"></script>
     </head>
     <body>
-        <div class="lineaDatos">
-            <h3>Nombre</h3>
-            <input type="text" id="usuario" value="" size="15" />
-            <h3>Contraseña</h3>
-            <input type="text" id="password" value="" size="15" />
-            <input type="button"  id="login" value="Login" />  
-        </div> 
+        <form method="post" action="ServletLoginEmpresa">
+            Ingrese nombre de usuario:
+            <input type="text" name="usuario" size="20"><br>
+            Ingrese clave:
+            <input type="password" name="clave" size="20"><br>
+            <input type="submit" value="confirmar">
+        </form>
     </body>
 </html>

@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.artic.stockapp.controladorVista;
+package com.artic.stockapp.controladorvista;
 
+import com.artic.stockapp.modelo.Vendedor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,8 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author AndresFelipe
  */
-@WebServlet(name = "ServletLogin", urlPatterns = {"/ServletLogin"})
-public class ServletLogin extends HttpServlet {
+public class ServletLoginUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,18 +31,11 @@ public class ServletLogin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            //Manejador es el objeto que contiene los métodos de el manejo de empresass
-
-            // Se verifica si el usuario y password coinciden con el de alguna
-            // De ser correcto se obtienen los datos de la empresa y se envia a la siguiente pagina con los datos
-            // necesarios de la empresa para mostrar
-        }
-        String usuario = (request.getParameter("usuario"));
-        String password = request.getParameter("password");
-        System.out.println(usuario + password);
-        RequestDispatcher rd =  request.getRequestDispatcher("/vistaEmpresa.jsp");
+        response.setContentType("text/html;charset=UTF-8");
+        Vendedor v=(Vendedor) request.getSession().getAttribute("Vendedor");
+        v.saludo();
+        v.setNombre("Nombre modificado");
+        RequestDispatcher rd = request.getRequestDispatcher("/vistaUsuario.jsp");
         rd.forward(request, response);
     }
 
